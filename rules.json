@@ -7,12 +7,13 @@
   ],
   "rules": {
     "fund_disbursement_threshold": ">=60%",
-    "max_contribution_per_user": "500 USD"
+    "max_contribution_per_user": "500 USD",
+    "min_contribution": "100USD"
   },
   "proposals": [
     {
-      "key": "min_contribution",
-      "value": "100 USD",
+      "key": "max_participant",
+      "value": "40",
       "votes": {
         "yes": 0,
         "no": 0
