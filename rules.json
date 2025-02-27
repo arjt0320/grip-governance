@@ -15,7 +15,7 @@
       "key": "max_participant",
       "value": "40",
       "votes": {
-        "yes": 0,
+        "yes": 1,
         "no": 0
       }
     }
