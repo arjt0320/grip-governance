@@ -1,7 +1,7 @@
 import fs from "fs-extra";
 import inquirer from "inquirer";
 
-const RULES_FILE = "rules.json";
+const RULES_FILE = "../../rules.json";
 
 const loadRules = async () => {
   if (!(await fs.pathExists(RULES_FILE))) {
