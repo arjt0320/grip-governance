@@ -14,7 +14,7 @@
       "key": "min_contribution",
       "value": "100USD",
       "votes": {
-        "yes": 0,
+        "yes": 1,
         "no": 0
       }
     }
