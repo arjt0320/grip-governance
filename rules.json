@@ -1,0 +1,31 @@
+{
+  "trip_name": "Travel Fund",
+  "participants": [
+    "system1",
+    "system2",
+    "system3"
+  ],
+  "rules": {
+    "fund_disbursement_threshold": ">=60%",
+    "max_contribution_per_user": "500 USD",
+    "min_contri_per_user": "100 USD"
+  },
+  "proposals": [
+    {
+      "key": "max_head_count",
+      "value": "5",
+      "votes": {
+        "yes": 1,
+        "no": 1
+      }
+    },
+    {
+      "key": "day_of_trip",
+      "value": "5 days",
+      "votes": {
+        "yes": 0,
+        "no": 1
+      }
+    }
+  ]
+}
