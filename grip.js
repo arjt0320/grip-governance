@@ -35,7 +35,7 @@ const proposeRuleChange = async () => {
   await saveRules(rules);
   await git.add(RULES_FILE);
   await git.commit(`Proposed rule change: ${key} -> ${value}`);
-  console.log(`Rule change proposed: ${key} -> ${value}`);
+  console.log(`📌 Rule change proposed: ${key} -> ${value}`);
 };
 
 // Vote on proposals
@@ -43,12 +43,12 @@ const voteOnProposal = async () => {
   const rules = await loadRules();
 
   if (rules.proposals.length === 0) {
-    console.log("No active proposals.");
+    console.log("❌ No active proposals.");
     return;
   }
 
-  console.log("Active Proposals:");
-  rules.proposals.forEach((p, i) => 
+  console.log("📌 Active Proposals:");
+  rules.proposals.forEach((p, i) =>
     console.log(`${i + 1}. ${p.key}: ${p.value} (Yes: ${p.votes.yes}, No: ${p.votes.no})`)
   );
 
@@ -61,7 +61,7 @@ const voteOnProposal = async () => {
   if (proposal) {
     proposal.votes[vote]++;
     await saveRules(rules);
-    console.log(`Vote recorded: ${vote.toUpperCase()} for ${proposal.key}`);
+    console.log(`✅ Vote recorded: ${vote.toUpperCase()} for ${proposal.key}`);
   }
 };
 
@@ -74,7 +74,7 @@ const mergeProposals = async () => {
   rules.proposals = rules.proposals.filter((proposal) => {
     if (proposal.votes.yes >= threshold) {
       rules.rules[proposal.key] = proposal.value;
-      console.log(`Rule merged: ${proposal.key} -> ${proposal.value}`);
+      console.log(`🔄 Rule merged: ${proposal.key} -> ${proposal.value}`);
       return false; // Remove from proposals after merging
     }
     return true; // Keep if not merged yet
@@ -83,7 +83,7 @@ const mergeProposals = async () => {
   await saveRules(rules);
   await git.add(RULES_FILE);
   await git.commit("Merged approved proposals");
-  console.log("Approved proposals merged into governance rules.");
+  console.log("✅ Approved proposals merged into governance rules.");
 };
 
 // CLI Menu
