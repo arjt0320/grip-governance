@@ -1,0 +1,40 @@
+name: Governance Automation
+
+on:
+  pull_request:
+    branches:
+      - master
+    types:
+      - opened
+      - synchronize
+      - closed
+
+jobs:
+  review-and-merge:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 18
+
+      - name: Install Dependencies
+        run: npm install fs-extra inquirer
+
+      - name: Review Votes
+        run: node .github/scripts/merge.js
+
+      - name: Commit Changes if Merged
+        run: |
+          git config --global user.name "GitHub Actions"
+          git config --global user.email "actions@github.com"
+          git add rules.json
+          git commit -m "🔄 Auto-merged approved proposals" || echo "No changes to commit"
+          git push origin master
+
+      - name: Notify Reviewers
+        if: success()
+        run: echo "✅ Rule merged successfully!"
