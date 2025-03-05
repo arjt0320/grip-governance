@@ -19,6 +19,15 @@
         "yes": 0,
         "no": 0
       }
+    },
+    {
+      "key": "min_duration_of_trip",
+      "value": "5 days",
+      "status": "pending",
+      "votes": {
+        "yes": 0,
+        "no": 0
+      }
     }
   ]
 }
