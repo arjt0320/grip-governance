@@ -29,6 +29,15 @@
         "yes": 3,
         "no": 0
       }
+    },
+    {
+      "key": "mode_of_travel",
+      "value": "air",
+      "status": "pending",
+      "votes": {
+        "yes": 2,
+        "no": 1
+      }
     }
   ]
 }
