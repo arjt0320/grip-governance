@@ -35,7 +35,7 @@
       "value": "air",
       "status": "pending",
       "votes": {
-        "yes": 0,
+        "yes": 1,
         "no": 0
       }
     }
